@@ -1,0 +1,25 @@
+<?php
+
+return array(
+    'dashboard' => [
+        'namespace' => 'Its\Example\Dashboard',
+        'webControllerNamespace' => 'Its\Example\Dashboard\Presentation\Web\Controller',
+        'apiControllerNamespace' => '',
+        'className' => 'Its\Example\Dashboard\Module',
+        'path' => APP_PATH . '/modules/dashboard/Module.php',
+        'defaultRouting' => true,
+        'defaultController' => 'index',
+        'defaultAction' => 'index'
+    ],
+    'home' => [
+        'namespace' => 'Its\Example\Home',
+        'webControllerNamespace' => 'Its\Example\Home\Presentation\Web\Controller',
+        'apiControllerNamespace' => '',
+        'className' => 'Its\Example\Home\Module',
+        'path' => APP_PATH . '/modules/home/Module.php',
+        'defaultRouting' => true,
+        'defaultController' => 'index',
+        'defaultAction' => 'index'
+    ],
+    
+);
