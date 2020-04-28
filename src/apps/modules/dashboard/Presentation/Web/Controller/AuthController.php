@@ -33,7 +33,6 @@ class AuthController extends Controller
                     if($this->security->checkHash($this->pelanggan->password_pelanggan,$cek['password_pelanggan'])){
                         $this->session->set('user-name', $cek['username_pelanggan']);
                         $this->session->set('user-admin', $cek['is_admin']);
-                        
                         return $this->response->redirect("dashboard");
                     }
                     else {                  
@@ -58,9 +57,7 @@ class AuthController extends Controller
 
     public function registerAction()
     {
-        // insert data ke table pegawai
-        if($this->request->isPost()){     
-            
+        if($this->request->isPost()){          
             $this->pelanggan->assign(
                 $this->request->getPost(),
                 [
@@ -77,25 +74,21 @@ class AuthController extends Controller
   
         if($check){
             foreach($check as $coba){
-                // echo $coba['username']."telah digunakan";
                 $this->view->message = "username_pelanggan ".$coba['username_pelanggan']." telah digunakan";
-           //  return "halo";
-                //    return $this->view->message;
-     
              }
         }
         else{
             $this->pelanggan->password_pelanggan = $this->security->hash($this->pelanggan->password_pelanggan);
-    
-           
-    
             if($success = $this->pelanggan->save()){
                 $this->view->message = "Selamat, Registrasi akun telah berhasil";
-                return $this->view;
+                $this->session->set('user-name', $this->pelanggan->username_pelanggan);
+                $this->session->set('user-admin', $this->pelanggan->isAdmin);
+                return $this->response->redirect('/home');
+                
             }
             else{
                 return "tidak berhasil";
-              //  return "Maaf Registrasi Anda Gagal, silahkan coba lagi";
+              
             }
         }
         

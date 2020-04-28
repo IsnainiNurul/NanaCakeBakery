@@ -1,3 +1,9 @@
+{% extends "template.volt" %}
+
+{% block title %} Buat Judul {% endblock %}
+
+{% block content %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,34 +12,49 @@
     <title>Document</title>
 </head>
 <body>
-    <h1>Selamat Datang {{ session.get('user-name')}}</h1>
-    {% if session.get('user-name') == null %} {# variable is not set #}
-    <a href="/dashboard/auth/login"><button>Login</button></a> 
-    <a href="/dashboard/auth/register"><button>Register</button></a> 
-{% else %} {# variable is set #}
-<a href="/dashboard/auth/logout"><button>Logout</button></a> 
+  
+  <a href="/dashboard/upload/"><button class="btn btn-primary">Tambah Kue</button></a>
+  <br>
+  <br>
+<div class="row">
 
-{% endif %}
-<br>
-{% for kue in kues %}
-<br>
-Nama Kue :{{ kue['nama_kue']}}
-<br>
-Jenis Kue : {{ kue['nama_jenis_kue']}}
-<br>
-Harga Kue : {{ kue['harga_kue']}}
-<br>
-Detail Kue : {{ kue['detail_kue']}}
-<br>
-<br>
-Jumlah Stok Kue : {{ kue['jumlahstok_kue']}}
-<br>
-<br>
-<img src="data:image/png;base64,{{kue['gambar_kue']}}" alt="" height="300">
-<br>
-<a href="/dashboard/kue/edit/{{kue['id_kue']}}"><button>Edit</button></a>
-<a href="/dashboard/kue/delete/{{kue['id_kue']}}"><button>Hapus</button></a>
-{% endfor %}
+  {% for kue in kues %}
 
+  <div class="col-md-3" style="text-align: center;" > 
+      <div class="card card-primary">
+        <div class="card-header">
+          <h3 class="card-title">
+              {{ kue['nama_kue']}}</h3>
+
+          <div class="card-tools">
+            <button type="button" class="btn btn-tool" data-card-widget="collapse"><i class="fas fa-minus"></i>
+            </button>
+          </div>
+          <!-- /.card-tools -->
+        </div>
+        <!-- /.card-header -->
+        <div class="card-body">
+
+<img src="data:image/png;base64,{{kue['gambar_kue']}}" alt="" height=200px" width="200px">
+ 
+<br>
+Harga : <br> <strong>{{kue['harga_kue']}}</strong>
+<br>
+Jenis Kue :<br> <strong>{{kue['nama_jenis_kue']}}</strong>
+<br>
+Jumlah Stok : <br> <strong>{{kue['jumlahstok_kue']}}</strong>
+<br>
+<a href="/dashboard/kue/edit/{{kue['id_kue']}}"><button class="btn btn-outline-primary">Edit</button></a>
+<a href="/dashboard/kue/delete/{{kue['id_kue']}}"><button class="btn btn-outline-primary">Hapus</button></a>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+</div>
+<br>
 </body>
 </html>
+
+{% endblock %}
+
+

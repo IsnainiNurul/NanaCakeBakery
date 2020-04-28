@@ -1,7 +1,4 @@
 <!DOCTYPE html>
-<!--[if IE 7]><html class="ie ie7"><![endif]-->
-<!--[if IE 8]><html class="ie ie8"><![endif]-->
-<!--[if IE 9]><html class="ie ie9"><![endif]-->
 <html lang="en">
   <head>
     <meta charset="utf-8">
@@ -35,29 +32,25 @@
         <div class="ps-container">
           <div class="navigation__left">
             <ul class="menu">
-              <li class="menu-item-has-children current-menu-item"><a href="index.html">Home</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
-                <ul class="sub-menu">
-                  <li><a href="index.html">Homepage 1</a></li>
-                  <li><a href="homepage-2.html">Homepage 2</a></li>
-                  <li><a href="homepage-3.html">Homepage 3</a></li>
-                </ul>
+              <li class="menu-item-has-children current-menu-item"><a href="/home">Home</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
               </li> 
-              <li><a href="about-us.html">About</a></li>
-              <li><a href="product-listing.html">Product</a>
-                <ul class="sub-menu">
-                  <li><a href="product-listing.html">Product Listing</a></li>
-                  <li><a href="product-detail.html">Product Detail</a></li>
-                </ul>
+              <li><a href="#jeniskueku">Product</a></li>
+              
               </li>
 
             </ul>
           </div>
-          <div class="navigation__center"><a class="ps-logo" href="index.html"><img src="images/logo-light.png" alt=""></a></div>
+          <div class="navigation__center"><a class="ps-logo" href="/home"><img src="images/logonana.png" alt=""></a></div>
           <div class="navigation__right">
             <ul class="menu">
-              <!-- <li><a href="#">Gallery</a></li> -->
-              <!-- <li><a href="blog-list.html">Blogs</a></li> -->
-              <li><a href="contact.html">Contact Us</a></li>
+              {% if session.get('user-name') ==  null%}
+              <li><a href="/dashboard/auth/login">Login</a></li>
+              <li><a href="/dashboard/auth/register">Register</a></li>
+              {% else %}
+              <li><a href="/home/keranjang">Shopping Cart</a></li>
+              <li><a href="/home/transaksi/list">Payment</a></li>
+              <li><a href="/dashboard/auth/logout">Logout</a></li>
+              {% endif %}
             </ul>
             <div class="header__actions"><a class="ps-search-btn" href="#"><i class="ba-magnifying-glass"></i></a><div class="ps-search">
               <div class="ps-search__content"><a class="ps-search__close" href="#"><span></span></a>
@@ -70,177 +63,44 @@
                 </form>
               </div>
             </div>
-             
-             
-              <div class="ps-cart"><a class="ps-cart__toggle" href="#"><span><i>20</i></span><i class="ba-shopping"></i></a>
-                <div class="ps-cart__listing">
-                  <div class="ps-cart__content">
-                    <div class="ps-cart-item"><a class="ps-cart-item__close" href="#"></a>
-                      <div class="ps-cart-item__thumbnail"><a href="product-detail.html"></a><img src="images/shopping-cart/1.png" alt="">
-                      </div>
-                      <div class="ps-cart-item__content"><a class="ps-cart-item__title" href="product-detail.html">Kingsman</a>
-                        <p><span>Quantity:<i>12</i></span><span>Total:<i>£176</i></span></p>
-                      </div>
-                    </div>
-                    <div class="ps-cart-item"><a class="ps-cart-item__close" href="#"></a>
-                      <div class="ps-cart-item__thumbnail"><a href="product-detail.html"></a><img src="images/shopping-cart/2.png" alt="">
-                      </div>
-                      <div class="ps-cart-item__content"><a class="ps-cart-item__title" href="product-detail.html">Joseph</a>
-                        <p><span>Quantity:<i>12</i></span><span>Total:<i>£176</i></span></p>
-                      </div>
-                    </div>
-                    <div class="ps-cart-item"><a class="ps-cart-item__close" href="#"></a>
-                      <div class="ps-cart-item__thumbnail"><a href="product-detail.html"></a><img src="images/shopping-cart/3.png" alt="">
-                      </div>
-                      <div class="ps-cart-item__content"><a class="ps-cart-item__title" href="product-detail.html">Todd Snyder</a>
-                        <p><span>Quantity:<i>12</i></span><span>Total:<i>£176</i></span></p>
-                      </div>
-                    </div>
-                    <div class="ps-cart-item"><a class="ps-cart-item__close" href="#"></a>
-                      <div class="ps-cart-item__thumbnail"><a href="product-detail.html"></a><img src="images/shopping-cart/1.png" alt="">
-                      </div>
-                      <div class="ps-cart-item__content"><a class="ps-cart-item__title" href="product-detail.html">Todd Snyder</a>
-                        <p><span>Quantity:<i>12</i></span><span>Total:<i>£176</i></span></p>
-                      </div>
-                    </div>
-                    <div class="ps-cart-item"><a class="ps-cart-item__close" href="#"></a>
-                      <div class="ps-cart-item__thumbnail"><a href="product-detail.html"></a><img src="images/shopping-cart/1.png" alt="">
-                      </div>
-                      <div class="ps-cart-item__content"><a class="ps-cart-item__title" href="product-detail.html">Todd Snyder</a>
-                        <p><span>Quantity:<i>12</i></span><span>Total:<i>£176</i></span></p>
-                      </div>
-                    </div>
-                    <div class="ps-cart-item"><a class="ps-cart-item__close" href="#"></a>
-                      <div class="ps-cart-item__thumbnail"><a href="product-detail.html"></a><img src="images/shopping-cart/1.png" alt="">
-                      </div>
-                      <div class="ps-cart-item__content"><a class="ps-cart-item__title" href="product-detail.html">Todd Snyder</a>
-                        <p><span>Quantity:<i>12</i></span><span>Total:<i>£176</i></span></p>
-                      </div>
-                    </div>
-                  </div>
-                  <div class="ps-cart__total">
-                    <p>Number of items:<span>36</span></p>
-                    <p>Item Total:<span>£528.00</span></p>
-                  </div>
-                  <div class="ps-cart__footer"><a href="cart.html">Check out</a></div>
-                </div>
-              </div>
             </div>
           </div>
         </div>
       </nav>
+
       <nav class="navigation--mobile">
-        <div class="ps-container"><a class="ps-logo" href="#"><img src="images/logo-light.png" alt=""></a>
+        <div class="ps-container"><a class="ps-logo" href="#"><img src="images/logonana.png" alt=""></a>
           <ul class="menu menu--mobile">
-            <li class="current-menu-item menu-item-has-children"><a href="#">Homepage</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
-              <ul class="sub-menu">
-                <li><a href="index.html">Homepage 1</a></li>
-                <li><a href="homepage-2.html">Homepage 2</a></li>
-                <li><a href="homepage-3.html">Homepage 3</a></li>
-              </ul>
+            <li class="/home"><a href="#">Homepage</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
             </li>
-            <li><a href="about.html">About</a></li>
-            <li class="menu-item-has-children"><a href="product-listing.html">product</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
-              <ul class="sub-menu">
-                <li><a href="product-listing.html">Product List</a></li>
-                <li><a href="product-detail.html">Product Detail</a></li>
-                <li><a href="order-form.html">Order Form</a></li>
-              </ul>
+            <li class="menu-item-has-children"><a href="/home#jeniskueku">product</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
             </li>
-            <li class="menu-item-has-children"><a href="about.html">Pages</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
-              <ul class="sub-menu">
-                <li><a href="menu.html">Menu</a></li>
-                <li><a href="cart.html">Shopping Cart</a></li>
-                <li><a href="checkout.html">Checkout</a></li>
-                <li><a href="whishlist.html">Whishlist</a></li>
-                <li><a href="compare.html">Compare</a></li>
-                <li><a href="404-page.html">Page 404</a></li>
-              </ul>
-            </li>
-            <li class="menu-item-has-children"><a href="blog-grid.html">Blogs</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
-              <ul class="sub-menu">
-                <li><a href="blog-grid.html">Blog Grid</a></li>
-                <li class="menu-item-has-children"><a href="blog-list.html">Blog Listing</a><span class="sub-toggle"><i class="fa fa-angle-down"></i></span>
-                  <ul class="sub-menu">
-                    <li><a href="blog-list.html">Blog List Has Sidebar</a></li>
-                    <li><a href="blog-list.html">Blog List No Sidebar</a></li>
-                  </ul>
-                </li>
-                <li><a href="blog-detail.html">Blog Detail</a></li>
-              </ul>
-            </li>
-            <li><a href="contact.html">Contact Us</a></li>
           </ul>
-          <div class="menu-toggle"><span></span></div>
-          <div class="header__actions"><a class="ps-search-btn" href="#"><i class="ba-magnifying-glass"></i></a>
-            <div class="ps-cart"><a class="ps-cart__toggle" href="#"><span><i>20</i></span><i class="ba-shopping"></i></a>
-              <div class="ps-cart__listing">
-                <div class="ps-cart__content">
-                  <div class="ps-cart-item"><a class="ps-cart-item__close" href="#"></a>
-                    <div class="ps-cart-item__thumbnail"><a href="product-detail.html"></a><img src="images/shopping-cart/1.png" alt="">
-                    </div>
-                    <div class="ps-cart-item__content"><a class="ps-cart-item__title" href="product-detail.html">Kingsman</a>
-                      <p><span>Quantity:<i>12</i></span><span>Total:<i>£176</i></span></p>
-                    </div>
-                  </div>
-                  <div class="ps-cart-item"><a class="ps-cart-item__close" href="#"></a>
-                    <div class="ps-cart-item__thumbnail"><a href="product-detail.html"></a><img src="images/shopping-cart/2.png" alt="">
-                    </div>
-                    <div class="ps-cart-item__content"><a class="ps-cart-item__title" href="product-detail.html">Joseph</a>
-                      <p><span>Quantity:<i>12</i></span><span>Total:<i>£176</i></span></p>
-                    </div>
-                  </div>
-                  <div class="ps-cart-item"><a class="ps-cart-item__close" href="#"></a>
-                    <div class="ps-cart-item__thumbnail"><a href="product-detail.html"></a><img src="images/shopping-cart/3.png" alt="">
-                    </div>
-                    <div class="ps-cart-item__content"><a class="ps-cart-item__title" href="product-detail.html">Todd Snyder</a>
-                      <p><span>Quantity:<i>12</i></span><span>Total:<i>£176</i></span></p>
-                    </div>
-                  </div>
-                  <div class="ps-cart-item"><a class="ps-cart-item__close" href="#"></a>
-                    <div class="ps-cart-item__thumbnail"><a href="product-detail.html"></a><img src="images/shopping-cart/1.png" alt="">
-                    </div>
-                    <div class="ps-cart-item__content"><a class="ps-cart-item__title" href="product-detail.html">Todd Snyder</a>
-                      <p><span>Quantity:<i>12</i></span><span>Total:<i>£176</i></span></p>
-                    </div>
-                  </div>
-                  <div class="ps-cart-item"><a class="ps-cart-item__close" href="#"></a>
-                    <div class="ps-cart-item__thumbnail"><a href="product-detail.html"></a><img src="images/shopping-cart/1.png" alt="">
-                    </div>
-                    <div class="ps-cart-item__content"><a class="ps-cart-item__title" href="product-detail.html">Todd Snyder</a>
-                      <p><span>Quantity:<i>12</i></span><span>Total:<i>£176</i></span></p>
-                    </div>
-                  </div>
-                  <div class="ps-cart-item"><a class="ps-cart-item__close" href="#"></a>
-                    <div class="ps-cart-item__thumbnail"><a href="product-detail.html"></a><img src="images/shopping-cart/1.png" alt="">
-                    </div>
-                    <div class="ps-cart-item__content"><a class="ps-cart-item__title" href="product-detail.html">Todd Snyder</a>
-                      <p><span>Quantity:<i>12</i></span><span>Total:<i>£176</i></span></p>
-                    </div>
-                  </div>
-                </div>
-                <div class="ps-cart__total">
-                  <p>Number of items:<span>36</span></p>
-                  <p>Item Total:<span>£528.00</span></p>
-                </div>
-                <div class="ps-cart__footer"><a href="cart.html">Check out</a></div>
-              </div>
-            </div>
-          </div>
         </div>
       </nav>
     </header>
+
     <!-- Home banner-->
     <div class="pb-80" id="slider">
       <div class="ps-carousel--animate ps-carousel--1st">
         <div class="item">
-          <div class="ps-product--banner"><span class="ps-badge ps-badge--sale"><img src="images/icons/badge-brown.png" alt=""><i>0.5</i></span><img src="images/banner/slider-5.png" alt="">
-            <div class="ps-product__footer"><a class="ps-btn" href="order-form.html">Order Now</a></div>
+          <div class="ps-product--banner"><span class="ps-badge ps-badge--sale"><img src="images/icons/badge-brown.png" alt=""><i>50%</i></span><img src="images/banner/slider-7.png" alt="">
+            <div class="ps-product__footer"><a class="ps-btn" href="/home#jeniskueku">Choose Cake</a></div>
           </div>
         </div>
         <div class="item">
-          <div class="ps-product--banner"><span class="ps-badge ps-badge--sale"><img src="images/icons/badge-brown.png" alt=""><i>50%</i></span><img src="images/banner/slider-6.png" alt="">
-            <div class="ps-product__footer"><a class="ps-btn" href="order-form.html">Order Now</a></div>
+          <div class="ps-product--banner"><span class="ps-badge ps-badge--sale"><img src="images/icons/badge-brown.png" alt=""><i>50%</i></span><img src="images/banner/slider-4.png" alt="">
+            <div class="ps-product__footer"><a class="ps-btn" href="/home#jeniskueku">Choose Cake</a></div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="ps-product--banner"><span class="ps-badge ps-badge--sale"><img src="images/icons/badge-brown.png" alt=""><i>50%</i></span><img src="images/banner/slider-5.png" alt="">
+            <div class="ps-product__footer"><a class="ps-btn" href="/home#jeniskueku">Choose Cake</a></div>
+          </div>
+        </div>
+        <div class="item">
+          <div class="ps-product--banner"><span class="ps-badge ps-badge--sale"><img src="images/icons/badge-brown.png" alt=""><i>0.5</i></span><img src="images/banner/slider-6.png" alt="">
+            <div class="ps-product__footer"><a class="ps-btn" href="/home#jeniskueku">Choose Cake</a></div>
           </div>
         </div>
       </div>
@@ -256,20 +116,20 @@
           <div class="row">
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
               <div class="ps-block--award"><img src="images/icons/award-1.png" alt="">
-                <h4> DELICIOUS TASTES <span>2011 -2012</span></h4>
-                <p>give the taste of a delicious, soft cake and melting in the mouth is addictive</p>
+                <h4> DELICIOUS TASTES <span>Since 1999</span></h4>
+                <p>Give the taste of a delicious, soft cake and melting in the mouth is addictive</p>
               </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
               <div class="ps-block--award"><img src="images/icons/award-2.png" alt="">
-                <h4> EXPERT CHEF <span>2012 - 2015</span></h4>
+                <h4> EXPERT CHEF <span>Since 1999</span></h4>
                 <p>This cake is cooked by an expert chef with a hygienic serving and serves delicious cakes</p>
               </div>
             </div>
             <div class="col-lg-4 col-md-4 col-sm-12 col-xs-12 ">
               <div class="ps-block--award"><img src="images/icons/award-2.png" alt="">
-                <h4>VARIOUS CAKE FLAVOR <span>2017 - 2018</span></h4>
-                <p>provide various kinds of cake flavor so consumers do not get bored and enjoy the cake</p>
+                <h4>VARIOUS CAKE FLAVOR <span>Since 1999</span></h4>
+                <p>Provide various kinds of cake flavor so consumers do not get bored and enjoy the cake</p>
               </div>
             </div>
           </div>
@@ -278,7 +138,7 @@
       <div class="ps-block--signature">
         <div class="ps-block__thumbnail"><img src="images/signature.png" alt=""></div>
         <div class="ps-block__content">
-          <p>“There are people in the world so hungry that God cannot appear to them except in the form of cake”</p><small>Mahatma Gandhi -  CEO Bakery</small><img src="images/signature-2.png" alt="">
+          <p>“There are people in the world so hungry that God cannot appear to them except in the form of cake”</p><small>Nana -  CEO and Founder Nana Cake & Bakery</small><img src="images/signature-2.png" alt="">
         </div>
       </div>
     </div>
@@ -286,7 +146,7 @@
     
     <!-- Home 1 products-->
     <div class="ps-home-product bg--cover" data-background="images/bg/home-product.jpg">
-      <div class="ps-container">
+      <div class="ps-container" id="jeniskueku">
         <div class="ps-section__header">
           <h3 class="ps-section__title">Various Cakes Flavors</h3>
           <p>Cakes Every Day</p><span><img src="images/icons/floral.png" alt=""></span>
@@ -294,15 +154,10 @@
         <div class="ps-section__content">
           
           {% for jeniskue in jeniskues %}
-          <div class="row">
+          <div class="row" style="display: inline-block;text-align: center;">
             <div class="col-lg-4 col-md-6 col-sm-6 col-xs-12 ">
               <div class="ps-product ps-product--horizontal">
                 <div class="ps-product__thumbnail"><img src="data:image/png;base64,{{jeniskue['gambar_jenis_kue']}}" alt=""><a class="ps-product__overlay" href="product-detail.html"></a>
-                  <ul class="ps-product__actions">
-                    <li><a href="#" data-tooltip="Quick View"><i class="ba-magnifying-glass"></i></a></li>
-                    <li><a href="#" data-tooltip="Favorite"><i class="ba-heart"></i></a></li>
-                    <li><a href="#" data-tooltip="Add to Cart"><i class="ba-shopping"></i></a></li>
-                  </ul>
                 </div>
                 <div class="ps-product__content"><a class="ps-product__title" href="product-detail.html"></a>
                   <p><a href="/home/kue/?jenis={{jeniskue['nama_jenis_kue']}}">{{jeniskue['nama_jenis_kue']}}</a> </p>
@@ -314,7 +169,6 @@
                     <option value="2">5</option>
                   </select>
                 
-                  <p class="ps-product__price">£5.00</p>
                 </div>
               </div>
             </div>
@@ -356,10 +210,10 @@
                 <option value="1">4</option>
                 <option value="2">5</option>
               </select>
-              <p>“Dessert pudding dessert jelly beans cupcake sweet caramels gingerbread. Fruitcake biscuit cheesecake. Cookie topping sweet muffin pudding tart bear claw sugar plum croissant.”</p>
+              <p>“Nana Cakes & Bakery provides hygienic services. This cake is prepared by expert chefs. Nana cake & bakery gives a different taste from the others so that makes consumers addicted”</p>
             </div>
             <div class="ps-block__footer">
-              <p><strong>Logan May</strong>  - CEO & Founder Invision</p>
+              <p><strong>Nana</strong>  - CEO & Founder Nana Cakes & Bakery</p>
             </div>
           </div>
           <div class="ps-block--tesimonial">
@@ -372,10 +226,10 @@
                 <option value="1">4</option>
                 <option value="2">5</option>
               </select>
-              <p>“Dessert pudding dessert jelly beans cupcake sweet caramels gingerbread. Fruitcake biscuit cheesecake. Cookie topping sweet muffin pudding tart bear claw sugar plum croissant.”</p>
+              <p>“Nana Cakes & Bakery provides hygienic services. This cake is prepared by expert chefs. Nana cake & bakery gives a different taste from the others so that makes consumers addicted”</p>
             </div>
             <div class="ps-block__footer">
-              <p><strong>Logan May</strong>  - CEO & Founder Invision</p>
+              <p><strong>Nana</strong>  - CEO & Founder Nana Cake & Bakery</p>
             </div>
           </div>
           <div class="ps-block--tesimonial">
@@ -388,10 +242,10 @@
                 <option value="1">4</option>
                 <option value="2">5</option>
               </select>
-              <p>“Dessert pudding dessert jelly beans cupcake sweet caramels gingerbread. Fruitcake biscuit cheesecake. Cookie topping sweet muffin pudding tart bear claw sugar plum croissant.”</p>
+              <p>“Nana Cakes & Bakery provides hygienic services. This cake is prepared by expert chefs. Nana cake & bakery gives a different taste from the others so that makes consumers addicted”<</p>
             </div>
             <div class="ps-block__footer">
-              <p><strong>Logan May</strong>  - CEO & Founder Invision</p>
+              <p><strong>Nana</strong>  - CEO & Founder Nana Cake & Bakery</p>
             </div>
           </div>
         </div>
@@ -404,7 +258,7 @@
         <div class="ps-container">
           <div class="row">
             <div class="col-lg-4 col-md-12 col-sm-12 col-xs-12 ">
-              <div class="ps-site-info"><a class="ps-logo" href="index.html"><img src="images/logo-dark.png" alt=""></a>
+              <div class="ps-site-info"><a class="ps-logo" ><img src="images/logonana.png" alt=""></a>
                 <p>“Nana Cakes & Bakery provides hygienic services. This cake is prepared by expert chefs that gives a different taste from the others so that makes consumers addicted”</p>
                 <ul class="ps-list--social">
                   <li><a href="#"><i class="fa fa-facebook"></i></a></li>

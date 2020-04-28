@@ -10,23 +10,13 @@ use Phalcon\Mvc\ViewBaseInterface;
 use Phalcon\Mvc\View\Engine\Volt;
 use Phalcon\Flash\Direct as FlashDirect;
 use Phalcon\Flash\Session as FlashSession;
-use Phalcon\Db\Adapter\Pdo\Mysql; //mysql sementara
-
-
-
 use Phalcon\Session\Manager as SessionManager;
 use Phalcon\Session\Adapter\Stream;
+
+
 $container['config'] = function() use ($config) {
 	return $config;
 };
-
-// $container->setShared('session', function() {
-//     $session = new Session();
-// 	$session->start();
-
-// 	return $session;
-// });
-
 
 $container->set(
     'session',
@@ -46,24 +36,8 @@ $container->set(
     }
 );
 
-$container->set(
-    'db',
-    function () {
-        return new Mysql(
-            [
-                'host'     => '127.0.0.1',
-                'username' => 'pmauser',
-                'password' => 'isnaini',
-                'dbname'   => 'Toko_kue',
-            ]
-        );
-    }
-);
-
 $container['dispatcher'] = function() {
-
     $eventsManager = new Manager();
-
     $eventsManager->attach(
         'dispatch:beforeException',
         function (Event $event, $dispatcher, Exception $exception) {
@@ -83,7 +57,6 @@ $container['dispatcher'] = function() {
 
     $dispatcher = new Dispatcher();
     $dispatcher->setEventsManager($eventsManager);
-
     return $dispatcher;
 };
 
@@ -170,9 +143,31 @@ $container->set(
                 'warning' => 'alert alert-warning',
             ]
         );
-
         $flash->setAutoescape(false);
-        
         return $flash;
+    }
+);
+
+
+$container['db'] = function () use ($config) {
+
+    $dbAdapter = $config->database->adapter;
+
+    return new $dbAdapter([
+        "host" => $config->database->host,
+        "username" => $config->database->username,
+        "password" => $config->database->password,
+        "dbname" => $config->database->dbname
+    ]
+);
+
+};
+
+$container->set(
+    'view',
+    function () {
+        $view = new View();
+        $view->setViewsDir(APP_PATH . '/views/');
+        return $view;
     }
 );

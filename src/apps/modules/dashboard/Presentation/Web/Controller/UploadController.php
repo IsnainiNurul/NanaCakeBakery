@@ -16,13 +16,10 @@ class UploadController extends Controller
     }
     public function indexAction()
     {
-        
-        // $check = $this->db->query("SELECT id FROM  users WHERE username = '".$this->session->get('user-name')."'")->fetchAll();
-        // $userid = $check[0]['id'];
-        // $this->view->setVars([
-        //     "userid" =>$userid,
-        //     ]
-        // );
+        $jeniskue = $this->db->query("Select * from jenis_kue")->fetchAll();
+        $this->view->setVars([
+            "jeniskues" =>  $jeniskue,
+        ]);
     }
     public function uploadAction(){        
         if($this->request->isPost()){
@@ -75,22 +72,15 @@ class UploadController extends Controller
             $this->request->getPost(),
         );
         if ($this->request->hasFiles() == true) {
-            //Print the real file names and their sizes
             $file = file_get_contents($_FILES['gambar_kue']['tmp_name']);
             $file = base64_encode($file);
             $this->kue->gambar_kue = $file;
-            // $this->barang->save();
         }
         if($this->kue->update()){
-
-
             return $this->response->redirect("/dashboard");
         }
         else{
             return "Update Gagal";
         }
-
     }
-
-    
 }

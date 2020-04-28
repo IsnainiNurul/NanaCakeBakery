@@ -2,6 +2,7 @@
 
 namespace Its\Example\Dashboard\Presentation\Web\Controller;
 use Its\Example\Dashboard\Presentation\Web\Models\Kue;
+use Its\Example\Dashboard\Presentation\Web\Models\Transaksi;
 use Phalcon\Mvc\Controller;
 use Phalcon\Session\Manager;
 
@@ -21,6 +22,13 @@ class KueController extends Controller
             "kues" =>$kues,
             ]
         );
+    }
+    public function transaksiAction()
+    {
+        $list = $this->db->query("SELECT formpembelian.*,transaksi.* from transaksi,formpembelian Where transaksi.idform =formpembelian.id_formpembelian")->fetchAll();
+       $this->view->setVars([
+        "lists"    => $list 
+       ]);
     }
     public function uploadAction(){        
         if($this->request->isPost()){
@@ -49,7 +57,7 @@ class KueController extends Controller
     }
 
     public function deleteAction($id){
-        $id = Kue::find($id);
+        $id = Kue::findFirst("id_kue =".$id);
         if($id->delete()){
             return $this->response->redirect($this->request->getHTTPReferer());
         }
@@ -58,17 +66,16 @@ class KueController extends Controller
     public function editAction($id)  
     {
         // return "test";
-       $kue = $this->db->query("Select * from kue where id_kue = '".$id."'")->fetchAll(); 
-    //    $kue = kue[0];
+       $kue = $this->db->fetchOne("Select * from kue where id_kue = '".$id."'");
          $this->view->setVars([
-             'kues' => $kue,
+             'kue' => $kue,
 
          ]);
     }
 
     public function editpostAction()
     { 
-        $this->kue = Kue::findFirst($this->request->getPost('id_kue'));
+        $this->kue = Kue::findFirst("id_kue=".$this->request->getPost('id_kue'));
         $this->kue->assign(
             $this->request->getPost(),
         );
@@ -85,6 +92,20 @@ class KueController extends Controller
         else{
             return "Update Gagal";
         }
-    }  
+    }
+    
+    public function hapusAction($id){
+        $transaksi = Transaksi::findFirst($id);
+        if($transaksi->delete()){
+            return $this->response->redirect('/dashboard/kue/transaksi/');
+        }
+        else{
+
+            return "Hapus Id ".$id." Gagal";
+        }
+        
+
+
+    }
 }
 

@@ -1,3 +1,7 @@
+{% extends "template.volt" %}
+{% block title %} Buat Judul {% endblock %}
+{% block content %}
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -6,7 +10,6 @@
     <title>Document</title>
 </head>
 <body>
-    {% for kue in kues %}
     <form action="/dashboard/kue/editpost" method="post" enctype="multipart/form-data">           
         Nama Kue    <br/> <input type="text" name="nama_kue" required="required" value="{{kue['nama_kue']}}"><br/>
         Harga Kue   <br/> <input type="text" name="harga_kue"  value="{{kue['harga_kue']}}"><br>
@@ -17,6 +20,7 @@
         <input type="hidden" name="id_kue" value="{{kue['id_kue']}}">
         <input type="submit" value="Simpan Data">
     </form>
-    {% endfor %}
 </body>
 </html>
+
+{% endblock %}

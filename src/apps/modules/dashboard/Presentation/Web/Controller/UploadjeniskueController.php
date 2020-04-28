@@ -47,7 +47,8 @@ class UploadjeniskueController extends Controller
     }
 
     public function deleteAction($id){
-        $id = Jenis_kue::find($id);
+        $id = Jenis_kue::findFirst("id_jenis_kue =".$id);
+        // return var_dump($id);
         if($id->delete()){
             return $this->response->redirect($this->request->getHTTPReferer());
         }
@@ -68,17 +69,17 @@ class UploadjeniskueController extends Controller
 
     public function editpostAction()
     { 
-        $this->jeniskue = Jenis_kue::findFirst($this->request->getPost('id'));
+        $this->jeniskue = Jenis_kue::findFirst("id_jenis_kue=".$this->request->getPost('id_kue'));
         $this->jeniskue->assign(
             $this->request->getPost(),
         );
-        // return $this->jeniskue->nama_jenis_kue;
+        
         if ($this->request->hasFiles() == true) {
-            //Print the real file names and their sizes
+            
             $file = file_get_contents($_FILES['gambar_jenis_kue']['tmp_name']);
             $file = base64_encode($file);
             $this->jeniskue->gambar_jenis_kue = $file;
-            // $this->barang->save();
+            
         }
         if($this->jeniskue->update()){
             return $this->response->redirect("/dashboard");

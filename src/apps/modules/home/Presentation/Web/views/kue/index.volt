@@ -56,14 +56,10 @@
                 <div class="item"><img src="data:image/png;base64,{{jeniskue['gambar_jenis_kue']}}" alt=""></div>
                 <div class="item"><img src="data:image/png;base64,{{jeniskue['gambar_jenis_kue']}}" alt=""></div>
                 <div class="item"><img src="data:image/png;base64,{{jeniskue['gambar_jenis_kue']}}" alt=""></div>
-                <div class="item">
-                  <div class="ps-video"><a class="popup-youtube ps-product__video" href="https://www.youtube.com/watch?v=kJQP7kiw5Fk"><img src="data:image/png;base64,{{jeniskue['gambar_jenis_kue']}}"" alt=""><i class="fa fa-play"></i></a></div>
-                </div>
               </div>
             </div>
           </div>
         </div>
-      
     
         <div class="col-lg-7 col-md-6 col-sm-12 col-xs-12 ">
           <div class="ps-product__info">
@@ -88,12 +84,12 @@
             <div class="ps-product__shopping">
               <form class="ps-form--shopping" action="do_action" method="post">
               </form>
-            </div>WAIT
-            <div class="ps-product__sharing"><a class="ps-btn ps-btn--yellow" href="cart.html">Choose Now</a>
+            </div>
+            <div class="ps-product__sharing">
               <p class="text-right">Share this:<a href="#"><i class="fa fa-facebook"></i></a><a href="#"><i class="fa fa-twitter"></i></a><a href="#"><i class="fa fa-dribbble"></i></a></p>
             </div>
-          </div>
-        </div>
+          </div> 
+        </div> 
       </div>
     </div>
   </div>
@@ -110,11 +106,6 @@
         <div class="ps-column">
           <div class="ps-product">
             <div class="ps-product__thumbnail"><img src="data:image/png;base64,{{kue['gambar_kue']}}" height="200px" alt=""><a class="ps-product__overlay" href="/home/kue/produkdetail/?produkdetail={{kue['nama_kue']}}"></a>
-              <ul class="ps-product__actions">
-                <li><a href="#" data-tooltip="Quick View"><i class="ba-magnifying-glass"></i></a></li>
-                <li><a href="#" data-tooltip="Favorite"><i class="ba-heart"></i></a></li>
-                <li><a href="#" data-tooltip="Add to Cart"><i class="ba-shopping"></i></a></li>
-              </ul>
             </div>
             <div class="ps-product__content"><a class="ps-product__title" href="/home/kue/produkdetail/?produkdetail={{kue['nama_kue']}}">{{kue['nama_kue']}}</a>
               <p><a href="/home/kue/produkdetail/?produkdetail={{kue['nama_kue']}}">Nana</a> - <a href="/home/kue/produkdetail/?produkdetail={{kue['nama_kue']}}">Bakery</a></p>

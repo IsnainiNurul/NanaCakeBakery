@@ -11,7 +11,7 @@
     
     <div class="login-background">
          <div class="login-header">
-         <img src="logo.png" class="img-logo">
+         <img src="/images/logonana.png" class="img-logo">
          <p>Nana Cake & Bakery</p>
          
         </div>

@@ -27,27 +27,12 @@ class IndexController extends Controller
     ]);
     }
 
-    // public function kueAction()
-    // {
-    //     $kue = $this->db->query("SELECT * FROM  kue")->fetchAll();
-    //     $this->view->setVars([
-    //         "kues" => $kue,
-        
-    // ]);
-
-
-
     public function searchAction(){
         $nama = $this->request->getQuery('nama_kue');
         $kue = $this->db->query("SELECT * FROM  kue WHERE nama_kue LIKE '%".$nama."%'")->fetchAll();
-
         $this->view->setVars([
             "kues" => $kue,
-
-
     ]);
-    
-
 
     }
 }

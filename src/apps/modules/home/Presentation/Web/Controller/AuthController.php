@@ -57,9 +57,7 @@ class AuthController extends Controller
 
     public function registerAction()
     {
-        // insert data ke table pegawai
         if($this->request->isPost()){     
-            
             $this->pelanggan->assign(
                 $this->request->getPost(),
                 [

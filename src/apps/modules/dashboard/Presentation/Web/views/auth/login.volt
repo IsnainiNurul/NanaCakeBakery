@@ -4,18 +4,16 @@
 
 <head>
 <meta charset="utf-8">
-    <title>Login</title>
+    <title>Halaman Login</title>
     <link rel="stylesheet" type="text/css" href="style.css">
 </head>
 <body>
 
 <div class="login-background">
      <div class="login-header">
-     <img src="logo.png" class="img-logo">
+     <img src="/images/logonana.png" class="img-logo">
      <p>Nana Cake & Bakery</p>
-     
     </div>
-
     <div class="login-body">
         <form action="/dashboard/auth/login" method="post">
         <input type="text" name="username_pelanggan" placeholder="Username" required= "required"><br>
@@ -23,15 +21,7 @@
         <input type="submit" name="login" value="LOG IN"><br>
         </form>
         <p>Don't Have an account?<a href="/dashboard/auth/register">Register</a></p>
-        <!-- <form action="/dashboard/auth/login" method="post">
-            Username <input type="text" name="username_pelanggan" required="required"> <br/>
-            Password <input type="password" name="password_pelanggan" required="required"> <br/>
-            <input type="submit" value="login">
-        </form> -->
-     
     </div>
-   
- 
 </div>
 
 <style>
@@ -62,7 +52,6 @@ input[type="text"],input[type="password"]{
  width: 100%;
  padding: 15px 0px;
  background: none;
-
 }
 
 
@@ -82,8 +71,6 @@ a,a:hover,a:visited,a:active{
  text-decoration: none;
  color: #e3e3ca;
 }
-
-
 </style>
 </body>
 

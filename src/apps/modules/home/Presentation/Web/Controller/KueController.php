@@ -28,7 +28,7 @@ class KueController extends Controller
         $kues = $this->db->query("Select * from kue where nama_kue = '".$this->request->getQuery('produkdetail')."'")->fetchAll();
         $this->view->setVars([
             "kues" =>$kues,
-                ]
+                ] 
             );
     }
 
