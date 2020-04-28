@@ -2,6 +2,4 @@
 # Nana Cake & Bakery
 **FP Individu oleh :**
 <br>
-Nama :Isnaini Nurul KurniaSari
-<br>
-NRP :05111740000010
+`Isnaini Nurul KurniaSari-05111740000010
