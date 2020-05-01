@@ -44,14 +44,5 @@ class KeranjangController extends Controller
 
             return "Hapus Id ".$id." Gagal";
         }
-        
-
-
     }
-
-
-  
-
-  
-
 }
