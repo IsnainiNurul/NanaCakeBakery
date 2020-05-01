@@ -23,15 +23,4 @@ return array(
         'defaultController' => 'index',
         'defaultAction' => 'index'
     ],
-    'auth' => [
-        'namespace' => 'Its\Example\Dashboard',
-        'webControllerNamespace' => 'Its\Example\Auth\Presentation\Web\Controller',
-        'apiControllerNamespace' => '',
-        'className' => 'Its\Example\Auth\Module',
-        'path' => APP_PATH . '/modules/auth/Module.php',
-        'defaultRouting' => true,
-        'defaultController' => 'index',
-        'defaultAction' => 'index'
-    ],
-
 );
